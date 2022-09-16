@@ -1,154 +1,180 @@
-remote_theme: "DigitaleGesellschaft/jekyll-theme-conference@2.0.0"
+title: Conference 2020
+preposition: at
+description: >-
+  Conference of a random organization on January 1st in Zurich, Switzerland
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://example.com" # the base hostname & protocol for your site, e.g. https://example.com
 
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole site, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing these this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+theme: jekyll-theme-conference
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: 3rs Winter Workshop
-description: The third Winter Workshop on the Behavioral and Experimental Economics of Food Consumption
-email: paolo.crosetto@gmail.com
+# Build settings
+markdown: kramdown
+sass:
+  style: compressed
 
-permalink: pretty
+# Additional exclude from processing
 exclude:
-  [
-    "node_modules/",
-    "*.gemspec",
-    ".gitignore",
-    "*.Rproj",
-    "*.gem",
-    "Gemfile",
-    "Gemfile.lock",
-    "package.json",
-    "package-lock.json",
-    "script/",
-    "LICENSE.txt",
-    "lib/",
-    "bin/",
-    "README.md",
-    "Rakefile",
-  ]
+  - .github/
+  - README.md
+  - LICENSE.md
+  - REDISTRIBUTED.md
+  - purgecss.config.js
 
-# Set a path/url to a logo that will be displayed instead of the title
-#logo: "/assets/images/just-the-docs.png"
+# Collections and their defaults
+collections:
+  talks:
+    output: true
+    permalink: /:collection/:title/
+  speakers:
+    output: true
+    permalink: /:collection/:title/
+  rooms:
+    output: true
+    permalink: /:collection/:title/
 
-# Enable or disable the site search
-# Supports true (default) or false
-search_enabled: true
-search:
-  # Split pages into sections that can be searched individually
-  # Supports 1 - 6, default: 2
-  heading_level: 2
-  # Maximum amount of previews per search result
-  # Default: 3
-  previews: 2
-  # Maximum amount of words to display before a matched word in the preview
-  # Default: 5
-  preview_words_before: 3
-  # Maximum amount of words to display after a matched word in the preview
-  # Default: 10
-  preview_words_after: 3
-  # Set the search token separator
-  # Default: /[\s\-/]+/
-  # Example: enable support for hyphenated search words
-  tokenizer_separator: /[\s/]+/
-  # Display the relative url in search results
-  # Supports true (default) or false
-  rel_url: true
-  # Enable or disable the search button that appears in the bottom right corner of every page
-  # Supports true or false (default)
-  button: false
+defaults:
+  - scope:
+      path: ""
+      type: talks
+    values:
+      layout: talk
+  - scope:
+      path: ""
+      type: speakers
+    values:
+      layout: speaker
+  - scope:
+      path: ""
+      type: rooms
+    values:
+      layout: room
 
-# To enable support for mermaid diagrams (https://mermaid-js.github.io/mermaid/),
-# uncomment the `mermaid` and `version` keys below
-# mermaid:
-#   # Version of mermaid library
-#   # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
-#   version: "9.1.3"
-#   # Put any additional configuration, such as setting the theme, in _includes/mermaid_config.js
-#   # See also docs/ui-components/code
 
-# Enable or disable heading anchors
-heading_anchors: true
+conference:
 
-# Aux links for the upper right navigation
-aux_links:
-  "Code on oTree Hub":
-    - "https://www.otreehub.com/projects/beliefelicitation/"
+  # Language
+  lang: en
 
-# Makes Aux links open in a new tab. Default is false
-aux_links_new_tab: false
+  # Show theme errors:
+  show_errors: True
 
-# Sort order for navigation links
-# nav_sort: case_insensitive # default, equivalent to nil
-nav_sort: case_sensitive # Capital letters sorted before lowercase
+  # Navigation bar
+  navigation:
+    logo:
+      name: Digital Society Switzerland
+      # img: ''
+      url: 'https://digitale-gesellschaft.ch/'
+    links:
+      - name: Program
+        relative_url: /program/
+      - name: Talks
+        relative_url: /talks/
+      - name: Speakers
+        relative_url: /speakers/
+      - name: Location
+        relative_url: /location/
+      - name: Previous Editions
+        menu:
+          - name: 2020 (current)
+            disabled: true
+          - name: 2019
+            relative_url: /2019/
+          - name: 2018
+            relative_url: /2018/
 
-# External navigation links
-nav_external_links:
-  - title: Contact us!
-    url: mailto:paolo.crosetto@gmail.com?subject=[Click-and-Drag]%20Contact&cc=thomas.deHaan@uib.no&target=_blank
-  - title: Get the paper!
-    url: https://www.dropbox.com/s/d0j0sa6nkn0ybuy/Crosetto_De_Haan_Eliciting_beliefs_when_the_distribution_matters_a_horse_race_of_tools.pdf?dl=1
-  - title: ESA Bologna presentation
-    url: https://www.dropbox.com/s/5046qxqiw7q5t5w/ESA.html?dl=0
-  - title: Otree code on oTree Hub
-    url: https://www.otreehub.com/projects/beliefelicitation/
-  - title: Otree app demo
-    url: https://beliefelicitation.herokuapp.com/demo
+  # Link Preview for Sharing
+  link_preview:
+    # also adapt "preposition" property at top for more meaningful descriptions
+    disable: false
+    img:
+      twitter: 'twitter_preview.png'      # inside /assets/images/
+      open_graph: 'facebook_preview.png'  # inside /assets/images/
 
-# Footer content
-# appears at the bottom of every page's main content
+  # Main landing page
+  main:
+    # logo:
+    #   img: ''
+    links:
+      - name: Program
+        relative_url: /program/
+      - name: How to get there
+        relative_url: /location/
+      - name: Tickets
+        disabled: true
+        absolute_url: ''
 
-# Back to top link
-back_to_top: true
-back_to_top_text: "Back to top"
+  # Information boxes
+  info_bars:
+    - title: Welcome to the Conference Theme for Jekyll!
+      color: primary
+      main_only: true
+      text: |
+        The Theme was originally made for the [Winterkongress](https://www.digitale-gesellschaft.ch/kongress/), a yearly conference of the [Digital Society Switzerland](https://digitale-gesellschaft.ch/).
 
-footer_content: "Copyright &copy; 2022"
+        ---
 
-# Footer last edited timestamp
-last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
-last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html
+        See the [README](github.com/DigitaleGesellschaft/jekyll-theme-conference/) on the project's GitHub repository for further information on how to configure and adapt it to your needs.
+    - text: This is just some random content for demonstration purposes.
+      color: warning
+      pages_only: true
 
-# Footer "Edit this page on GitHub" link text
-gh_edit_link: false # show or hide edit this page link
-gh_edit_link_text: "Edit this page on GitHub"
-gh_edit_repository: "https://github.com/just-the-docs/just-the-docs" # the github URL for your repo
-gh_edit_branch: "main" # the branch that your docs is served from
-# gh_edit_source: docs # the source that your files originate from
-gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
+  # Live indications
+  live:
+    date: 01.01.2020
+    timezone: GMT+1
+    stop:       240  # in minutes
+    streaming:
+      enable: true
+      pause:     60  # in minutes
+      prepend:    5  # in minutes
+      extend:     5  # in minutes
+    demo:
+      enable: false
+      duration: 300  # in seconds
+      pause:     10  # in seconds
 
-# Color scheme currently only supports "dark", "light"/nil (default), or a custom scheme that you define
-color_scheme: nil
+  map:
+    # Initial map center point
+    home_coord: 47.37808, 8.53935
+    # Alternative map providers can be found on https://leaflet-extras.github.io/leaflet-providers/preview/
+    # The following do match the Bootstrap design not too badly:
+    #   - Hydda.Full
+    #   - Thunderforest.Neighbourhood
+    #   - Esri.WorldTopoMap
+    map_provider: "OpenStreetMap.Mapnik"
+    default_zoom: 17
 
-# Google Analytics Tracking (optional)
-# e.g, UA-1234567-89
-#ga_tracking: UA-2709176-10
-#ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (true/nil by default)
+  talks:
+    # Talk categories
+    main_categories:
+      - name: Cat A
+        color: info
+      - name: Cat B
+        color: success
 
-plugins:
-  - jekyll-seo-tag
+    # Hide icons on talk overview page
+    hide_icons: false
 
-kramdown:
-  syntax_highlighter_opts:
-    block:
-      line_numbers: false
+  speakers:
+    # Show first and last name
+    show_firstname: true
 
-compress_html:
-  clippings: all
-  comments: all
-  endings: all
-  startings: []
-  blanklines: false
-  profile: false
-  # ignore:
-  #   envs: all
+  location:
+    # Disable links to locations
+    hide: false
+    # URL of location / room overview page
+    url: '/location'
+    # Main page title shown on location/room navigation bar
+    navbar_title: 'Location'
+    # Show map on location main page
+    map: true
+
+  program:
+    # URL of program page
+    url: '/program'
+
+    # Time steps in program table
+    time_steps: 15 # in minutes
+
+    # Show intermediary time steps (next to full hours)
+    show_alltimes: true
