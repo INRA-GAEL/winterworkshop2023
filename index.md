@@ -2,11 +2,11 @@
 layout: default
 title: Home
 nav_order: 1
-description: "Presentation and documentation website for the Click-and-Drag belief elicitation interface by Paolo Crosetto & Thomas De Haan"
+description: "The third Winter Workshop: Behavioral and Experimental Economics of Food Consumption"
 permalink: /
 ---
 
-# Click and drag belief elicitation interface
+# 3rd Winter Workshop
 {: .fs-9 }
 
 Welcome! 
